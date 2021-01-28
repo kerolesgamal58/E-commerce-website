@@ -21,6 +21,7 @@
         <div class="alert alert-primary">
             {{ __('admin.verification_message_sent_successfully') }}
         </div>
+        <a href="{{ route('verification.send') }}">{{ __('admin.resend_email_verification') }}</a>
     </div>
     <!-- /.card -->
 </div>

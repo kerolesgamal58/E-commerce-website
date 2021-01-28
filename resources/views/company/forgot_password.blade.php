@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{__('admin.login')}}</title>
+    <title>{{__('admin.forgot_password')}}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,12 +22,14 @@
             <a href="{{route('admin.dashboard')}}" class="h1"><b>Admin</b>LTE</a>
         </div>
         <div class="card-body">
-            <p class="login-box-msg">{{ __('admin.sign_in_message') }}</p>
+            <p class="login-box-msg">{{__('admin.forgot_password')}}</p>
+
+            @include('admin.layouts.message')
 
             <form action="" method="post">
                 @csrf
 
-                <div class="input-group form-group mb-3">
+                <div class="input-group mb-3">
                     <input type="email" name="email" class="form-control" placeholder="{{ __('admin.enter_email') }}">
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -35,34 +37,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="{{ __('admin.enter_password') }}">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" name="rememberme" value="1" id="remember">
-                            <label for="remember">
-                                {{ __('admin.remember_me') }}
-                            </label>
-                        </div>
-                    </div>
-                    <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">{{ __('admin.sign_in') }}</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('admin.reset') }}</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
-            <br>
 
-            <p class="mb-1">
-                <a href="{{route('admin.forgot_password')}}">{{ __('admin.i_forgot_pass') }}</a>
+            <p class="mb-0">
+                <a href="{{route('admin.login')}}" class="text-center">{{ __('admin.sign_in') }}</a>
             </p>
         </div>
         <!-- /.card-body -->

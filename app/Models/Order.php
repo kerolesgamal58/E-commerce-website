@@ -17,4 +17,20 @@ class Order extends Model
     public function shipping(){
         return $this->belongsTo(Shipping::class, 'shipping_company_id', 'id');
     }
+
+    public function customer(){
+        return $this->belongsTo(Customer::class, 'customer_id', 'id');
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
+
+    public function city(){
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+
+    public function scopeCountUnreadNotifications($query){
+        return $query->where('read', 'unread')->count();
+    }
 }

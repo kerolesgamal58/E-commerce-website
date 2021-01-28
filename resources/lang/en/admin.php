@@ -220,14 +220,13 @@ return [
     'order_add_successfully' => 'Your order has been added successfully, you will get it as soon as possible',
     'orders' => 'Orders',
     'order_deleted_successfully' => 'the order has been deleted successfully',
-    'have_copon' => 'Have a coupon?',
-    'have_copon' => 'Have a coupon?',
-    'have_copon' => 'Have a coupon?',
-    'have_copon' => 'Have a coupon?',
-    'have_copon' => 'Have a coupon?',
-    'have_copon' => 'Have a coupon?',
-    'have_copon' => 'Have a coupon?',
-    'have_copon' => 'Have a coupon?',
+    'email_verification' => 'Email verification',
+    'enter_name' => 'Enter name',
+    'select_user_level' => 'Select user level',
+    'no_data' => 'There is no data to display',
+    'product_id' => 'Product ID',
+    'have_new_order' => 'you have a new order to ',
+    'notifications' => 'Notifications',
 
 
     'login' => 'Login Page',
@@ -237,7 +236,9 @@ return [
     'signin' => 'Sign In',
     'creating_customer_error' => 'Sorry, there is an error while creating your account please try again later',
     'verification_message_sent_successfully' => 'We have sent an email to your mailbox, Please go and verify your Email',
+    'verification_message_success' => 'Your account has been verified successfully, please try to login',
     'verification_error' => 'This email and token do not match',
     'error' => 'there is an error, please try again later',
+    'resend_email_verification' => 'Resend another email',
 
 ];

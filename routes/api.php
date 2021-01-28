@@ -18,12 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['api', 'check_api_password']], function (){
 
-    Route::post('admin/login', [ApiAdminAuth::class, 'login']);
-    Route::get('unauthenticated', [ApiAdminAuth::class, 'error'])->name('api.error');
+    Route::post('admin/login', [ApiAdminAuth::class, 'login'])->name('api.login');
 
     Route::group(['middleware' => 'auth:admin_api'], function (){
         Route::post('admin/logout', [ApiAdminAuth::class, 'logout']);
-        Route::post('get_products', [ProductApi::class, 'index']);
+        Route::post('products', [ProductApi::class, 'index']);
 
     });
 });

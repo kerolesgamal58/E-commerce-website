@@ -220,6 +220,13 @@ return [
     'order_add_successfully' => 'تم اضافة طلبك بنجاح، سوف يتم ايصال طلبك في اقرب وقت',
     'orders' => 'الطلبات',
     'order_deleted_successfully' => 'تم ازالة الطلب بنجاح',
+    'email_verification' => 'تفعيل البريد الالكتروني',
+    'enter_name' => 'ادخل الاسم',
+    'select_user_level' => 'اختر مستوي المستخدم',
+    'no_data' => 'لا يوجد بيانات لعرضها',
+    'product_id' => 'رقم المنج',
+    'have_new_order' => 'لديك طلب جديد ',
+    'notifications' => 'اشعارات',
 
 
 
@@ -230,8 +237,10 @@ return [
     'signin' => 'انشاء حساب جديد',
     'creating_customer_error' => 'نأسفز لقد حدث خطأ ما يرجي المحاولة لاحقا',
     'verification_message_sent_successfully' => 'لقد تم ارسال رسالة التفعيل علي البريد الالكتروني يرجي زيارة البريد الالكتروني و تفعيل الحساب',
+    'verification_message_success' => 'تم تفعيل حسابك بنجاح يرجي محاولة الدخول',
     'verification_error' => 'لقد حدث خطأ ما يرجي المحاولة لاحقا',
     'error' => 'لقد حدث خطأ ما يرجي المحاولة لاحقا',
+    'resend_email_verification' => 'اعد الارسال',
 
 
 ];

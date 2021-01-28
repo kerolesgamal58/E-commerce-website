@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\OrderShipped;
+use App\Listeners\MakeNotification;
+use App\Models\Order;
 use App\Models\Setting;
+use App\Observers\OrderObserver;
 use App\Observers\SettingsObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -20,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        OrderShipped::class => [
+            MakeNotification::class
+        ],
     ];
 
     /**
@@ -30,5 +37,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         Setting::observe(SettingsObserver::class);
+        Order::observe(OrderObserver::class);
     }
 }

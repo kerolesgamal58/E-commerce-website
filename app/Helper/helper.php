@@ -10,6 +10,7 @@ use App\Models\MallProduct;
 use App\Models\OtherData;
 use App\Models\Product;
 use App\Models\Setting;
+use App\Models\Shipping;
 use http\Client\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -154,4 +155,14 @@ function calcCartCach(){
         $total_cache += ($price_after_conversion * $customer_product->quantity);
     }
     return $total_cache;
+}
+
+function getCurrentUserId(){
+    return $company_id = Auth::guard('web')->user()->id;
+}
+
+function getCurrentShippingCompanyId(){
+    $company_id = Auth::guard('web')->user()->id;
+    $shipping_company_id = Shipping::select('id')->where('user_id', $company_id)->first()->id;
+    return $shipping_company_id;
 }

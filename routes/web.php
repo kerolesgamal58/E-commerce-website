@@ -9,6 +9,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 #####################################################
 
 define('PAGINATION_COUNT', 12);
+define('PAGINATION_NOTIFICATION', 6);
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],
@@ -20,7 +21,6 @@ Route::group([
 
         Route::get('login', [CustomerAuth::class, 'getLoginPage'])->name('customer.login');
         Route::post('login', [CustomerAuth::class, 'doLogin']);
-        Route::get('logout', [CustomerAuth::class, 'logout']);
         Route::get('signin', [CustomerAuth::class, 'getSignInPage'])->name('customer.signin');
         Route::post('signin', [CustomerAuth::class, 'doSignIn']);
         Route::get('verify/{token}/{email}', [CustomerAuth::class, 'verify_email'])->name('customer.verify');

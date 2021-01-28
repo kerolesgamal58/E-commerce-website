@@ -24,7 +24,7 @@ Route::group([
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],
     function (){
 
-    Route::group(['prefix' => 'admin'], function (){
+    Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function (){
         Route::get('/login', [AdminAuth::class, 'login'])->name('admin.login');
         Route::post('/login', [AdminAuth::class, 'dologin']);
         Route::get('/forgot_password', [AdminAuth::class, 'forgot_password'])->name('admin.forgot_password');

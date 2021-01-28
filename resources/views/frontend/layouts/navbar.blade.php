@@ -7,8 +7,8 @@
                         @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
                             <li><a href="#"><i class="fa fa-user"></i>{{ __('admin.my_account') }}</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i>{{ __('admin.wishlist') }}</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i>{{ __('admin.my_cart') }}</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i>{{ __('admin.checkout') }}</a></li>
+                            <li><a href="{{ route('customer.get_cart') }}"><i class="fa fa-user"></i>{{ __('admin.my_cart') }}</a></li>
+                            <li><a href="{{ route('customer.get_checkout') }}"><i class="fa fa-user"></i>{{ __('admin.checkout') }}</a></li>
                             <li><a href="{{ route('customer.logout') }}"><i class="fa fa-user"></i>{{ __('admin.logout') }}</a></li>
                         @else
                         <li><a href="{{ route('customer.login') }}"><i class="fa fa-user"></i>{{ __('admin.login') }}</a></li>
@@ -22,16 +22,7 @@
                 <div class="header-right">
                     <ul class="list-unstyled list-inline">
                         <li class="dropdown dropdown-small">
-                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">INR</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown dropdown-small">
-                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><i class="fas fa-globe"></i></a>
+                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">@if(LaravelLocalization::getCurrentLocale() == 'ar')اللغة @elseif(LaravelLocalization::getCurrentLocale() == 'en') Language @endif</a>
                             <ul class="dropdown-menu">
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                     <li>
@@ -58,13 +49,13 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
-                <div class="shopping-item">
-                    @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
+            @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
+                <div class="col-sm-6">
+                    <div class="shopping-item">
                         <a href="{{ route('customer.get_cart') }}">{{ __('admin.cart') }} - <span class="cart-amunt">${!! App\Helper\calcCartCach() !!}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{!! App\Helper\getNoProductsInCart() !!}</span></a>
-                    @endif
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </div> <!-- End site branding area -->

@@ -34,7 +34,7 @@ class ApiAdminAuth extends Controller
 
     public function logout(){
         Auth::guard('admin_api')->logout();
-        return response()->json(['status' => true, 'message' => 'success']);
+        return response()->json(['status' => true, 'message' => 'Logout Successfully']);
     }
 
     protected function respondWithToken($token)
@@ -44,9 +44,5 @@ class ApiAdminAuth extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth('admin_api')->factory()->getTTL() * 60
         ]);
-    }
-
-    public function error(){
-        return response()->json(['status' => false, 'message' => 'you have to log in first']);
     }
 }

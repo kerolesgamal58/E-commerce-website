@@ -12,7 +12,6 @@ use function App\Helper\getCurrentCustomerId;
 class OrderController extends Controller
 {
     public function order(OrderRequest $request){
-//        return $request->except(['_token', 'payment_method']);
         if ($request->payment_method == 'onDelivery'){
             $customer_id = getCurrentCustomerId();
             $customer_products = CustomerProduct::where('customer_id', $customer_id)->get();
